@@ -45,9 +45,11 @@ example outputs:
 [1, 1]
 [1, 2]
 [2, 1]
-[2, 2]```
+[2, 2]
+```
 
 **guassian** function, takes a mean and a standard deviation. Returns a guassian random number.
+```
 guassian(10, 2)
 example outputs: (note that with guassian random numbers numbers closer to the mean appear far more often)
 9
@@ -56,3 +58,4 @@ example outputs: (note that with guassian random numbers numbers closer to the m
 12
 13
 4
+```
