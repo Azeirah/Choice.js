@@ -48,7 +48,7 @@ var Random = (function () {
     };
 
     Random.choice = function (array) {
-        return array[Random.randint(0, array.length)];
+        return array[Random.randint(0, array.length - 1)];
     };
 
     Random.shuffle = function (array) {
