@@ -68,6 +68,10 @@ var Random = (function () {
         return array;
     };
 
+    Random.chance = function (percentage) {
+        return Random.rand() < (percentage / 100);
+    };
+
     Random.sample = function (array, k) {
         var sampled = new Array(k);
         var choice;
