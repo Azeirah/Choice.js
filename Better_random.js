@@ -43,8 +43,8 @@ var Random = (function () {
         return (Math.random()*2-1)+(Math.random()*2-1)+(Math.random()*2-1);
     };
 
-    Random.randint = function (a, b) {
-        return parseInt(rand() * b, 10) + a;
+    Random.randint = function (min, max) {
+        return Math.floor(Math.random() * (max - min + 1)) + min;
     };
 
     Random.choice = function (array) {
