@@ -48,7 +48,7 @@ example outputs:
 [2, 2]
 ```
 
-**guassian** function, takes a mean and a standard deviation. Returns a guassian random number.
+**gaussian** function, takes a mean and a standard deviation. Returns a guassian random number.
 ```
 guassian(10, 2)
 example outputs: (note that with guassian random numbers numbers closer to the mean appear far more often)
@@ -58,4 +58,27 @@ example outputs: (note that with guassian random numbers numbers closer to the m
 12
 13
 4
+```
+
+**chance** function, takes a percentage. Returns true or false based on that percentage.
+```
+chance(25); // has a 25% chance to return true
+```
+
+**probabilities** function, takes two arrays of equal length. The first one is a set of probabilities adding up to 100%. The second one is a list of items. Each probability corresponds to an item. Example `Random.probabilities([2, 98], ["first item", "second item"])` has a 2% chance to return `"first item"` and a far higher, 98% to return `"second item"`
+```
+probabilities([25, 25, 25, 25], ["green", "blue", "yellow", "white"]); // note that this is the same as using choice()
+
+// this one has 15% chance to return "I get 500 experience points"
+// another 15% chance to return "I get 200 experience points"
+// and a far higher 70% to return "I get 50 experience points"
+probabilities([15, 15, 70], ["I get 500 experience points", "I get 200 experience points", "I get 50 experience points"]);
+probabilities([1, 2, 3], [1]) // fails, the arrays are not equal size and probabilites do not add up to 100
+
+// note that you can also return functions, this is very powerful
+probabilities([80, 20], function () {
+    console.log("I appear about 80% of the time! :)");
+}, function () {
+    console.log("I appear about 20% of the time! :(");
+});
 ```
