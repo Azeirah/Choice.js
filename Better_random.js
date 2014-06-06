@@ -43,6 +43,14 @@ var Random = (function () {
         return (Math.random()*2-1)+(Math.random()*2-1)+(Math.random()*2-1);
     };
 
+    var sum = function (arr) {
+        var total = 0;
+        arr.forEach(function (el) {
+            total += el;
+        });
+        return total;
+    }
+
     Random.randint = function (min, max) {
         return Math.floor(Math.random() * (max - min + 1)) + min;
     };
@@ -70,6 +78,19 @@ var Random = (function () {
 
     Random.chance = function (percentage) {
         return Random.rand() < (percentage / 100);
+    };
+
+    Random.probabilities = function (probabilities, things) {
+        var rand = Random.randint(0, 100);
+        var probabilitySum = sum(probabilities);
+        if (probabilities.length !== things.length) throw new Exception("Probabilities length is not equal to your items' length");
+        if (probabilitySum != 100) throw new Exception ("Sum of probability percentages does not equal 100%. Sum is: " + probabilitySum);
+        
+        for (var i = 0; i < probabilities.length; i++) {
+            rand -= probabilities[i];
+            if (rand <= 0)
+                return things[i];
+        }
     };
 
     Random.sample = function (array, k) {
