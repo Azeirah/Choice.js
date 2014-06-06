@@ -26,6 +26,7 @@ example outputs:
 4```
 
 **shuffle** function, takes an array
+
 this one is a cool one, it returns an array with the elements shuffled around
 ```
 shuffle([1, 2, 3, 4, 5]) -> ex output: [1, 3, 4, 5, 2]
