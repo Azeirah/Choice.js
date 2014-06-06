@@ -76,15 +76,19 @@ var Random = (function () {
         return array;
     };
 
-    Random.chance = function (percentage) {
-        return Random.rand() < (percentage / 100);
+    Random.chance = function (percentage, optional) {
+        if (!optional) return Random.rand() < (percentage / 100);
+        else {
+            if (Random.chance(percentage)) return optional[0];
+            else return optional[1];
+        }
     };
 
     Random.probabilities = function (probabilities, things) {
         var rand = Random.randint(0, 100);
         var probabilitySum = sum(probabilities);
-        if (probabilities.length !== things.length) throw new Exception("Probabilities length is not equal to your items' length");
-        if (probabilitySum != 100) throw new Exception ("Sum of probability percentages does not equal 100%. Sum is: " + probabilitySum);
+        if (probabilities.length !== things.length) throw new Error("Probabilities length is not equal to items' length");
+        if (probabilitySum != 100) throw new Error("Sum of probability percentages does not equal 100%. Sum is: " + probabilitySum);
         
         for (var i = 0; i < probabilities.length; i++) {
             rand -= probabilities[i];
