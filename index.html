@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="viewport" content="width=640">
+
+    <link rel="stylesheet" href="stylesheets/core.css" media="screen">
+    <link rel="stylesheet" href="stylesheets/mobile.css" media="handheld, only screen and (max-device-width:640px)">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+
+    <script type="text/javascript" src="javascripts/modernizr.js"></script>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script type="text/javascript" src="javascripts/headsmart.min.js"></script>
+    <script type="text/javascript">
+      $(document).ready(function () {
+        $('#main_content').headsmart()
+      })
+    </script>
+    <title>choice.js by Azeirah</title>
+  </head>
+
+  <body>
+    <a id="forkme_banner" href="https://github.com/Azeirah/jsRandom">View on GitHub</a>
+    <div class="shell">
+
+      <header>
+        <span class="ribbon-outer">
+          <span class="ribbon-inner">
+            <h1>choice.js</h1>
+            <h2>Better random library for javascript</h2>
+          </span>
+          <span class="left-tail"></span>
+          <span class="right-tail"></span>
+        </span>
+      </header>
+
+      <section id="downloads">
+        <span class="inner">
+          <a href="https://github.com/Azeirah/jsRandom/zipball/master" class="zip"><em>download</em> .ZIP</a><a href="https://github.com/Azeirah/jsRandom/tarball/master" class="tgz"><em>download</em> .TGZ</a>
+        </span>
+      </section>
+
+
+      <span class="banner-fix"></span>
+
+
+      <section id="main_content">
+        <h1>
+<a name="jsrandom" class="anchor" href="#jsrandom"><span class="octicon octicon-link"></span></a>jsRandom</h1>
+
+<p>Better random library for javascript</p>
+
+<p>This is a random for javascript library heavily inspired by the Python random module.
+Note that the functions might behave a little different from the Python random library functions, and not all of them are included.</p>
+
+<h2>
+<a name="functions" class="anchor" href="#functions"><span class="octicon octicon-link"></span></a>functions</h2>
+
+<p>We have for you:
+a <strong>randint</strong> function, takes start and stop.</p>
+
+<p>returns an integer equal to or bigger than start, but smaller than stop</p>
+
+<pre><code>randint(0, 1500) -&gt; ex outputs: 0, 152, 839, 1499
+</code></pre>
+
+<p><strong>choice</strong> function, takes an array
+this one returns a random element from a given array
+<code>choice([1, 2, 3, 4, 5])
+example outputs:
+1
+5
+4</code></p>
+
+<p><strong>shuffle</strong> function, takes an array</p>
+
+<p>this one is a cool one, it returns an array with the elements shuffled around</p>
+
+<pre><code>shuffle([1, 2, 3, 4, 5]) -&gt; ex output: [1, 3, 4, 5, 2]
+</code></pre>
+
+<p><strong>rand</strong> function
+returns a number between 0.0 and 1.0, this is the exact same as calling Math.random</p>
+
+<p><strong>sample</strong> function, takes an array and a number of elements, returns an array of randomly chosen elements from the original array.</p>
+
+<pre><code>sample([1, 2, 3, 4, 5, 6, 7, 8], 3)
+example outputs:
+[8, 5, 1]
+[1, 6, 2]
+sample([1, 1, 2, 2], 2)
+example outputs:
+[1, 1]
+[1, 2]
+[2, 1]
+[2, 2]
+</code></pre>
+
+<p><strong>gaussian</strong> function, takes a mean and a standard deviation. Returns a guassian random number.</p>
+
+<pre><code>guassian(10, 2)
+example outputs: (note that with guassian random numbers numbers closer to the mean appear far more often)
+9
+9
+7
+12
+13
+4
+</code></pre>
+
+<p><strong>chance</strong> function, takes a percentage. Returns true or false based on that percentage.
+Takes a second optional argument, an array of two items.
+If the chance is true, it returns the first item out of the array. Otherwise it will return the second.</p>
+
+<pre><code>chance(25); // has a 25% chance to return true
+chance(70); // has a 70% chance to return true
+chance(12, [1, 2]); // has a 12% chance to return 1 and an 88% chance to return 2
+</code></pre>
+
+<p><strong>probabilities</strong> function, takes two arrays of equal length. The first one is a set of probabilities adding up to 100%. The second one is a list of items. Each probability corresponds to an item. Example <code>Random.probabilities([2, 98], ["first item", "second item"])</code> has a 2% chance to return <code>"first item"</code> and a far higher, 98% to return <code>"second item"</code></p>
+
+<pre><code>probabilities([25, 25, 25, 25], ["green", "blue", "yellow", "white"]); // note that this is the same as using choice()
+
+// this one has 15% chance to return "I get 500 experience points"
+// another 15% chance to return "I get 200 experience points"
+// and a far higher 70% to return "I get 50 experience points"
+probabilities([15, 15, 70], ["I get 500 experience points", "I get 200 experience points", "I get 50 experience points"]);
+probabilities([1, 2, 3], [1]) // fails, the arrays are not equal size and probabilites do not add up to 100
+
+// note that you can also return functions, this is very powerful
+probabilities([80, 20], [function () {
+    console.log("I appear about 80% of the time! :)");
+}, function () {
+    console.log("I appear about 20% of the time! :(");
+}])();
+</code></pre>
+      </section>
+
+      <footer>
+        <span class="ribbon-outer">
+          <span class="ribbon-inner">
+            <p>this project by <a href="https://github.com/Azeirah">Azeirah</a> can be found on <a href="https://github.com/Azeirah/jsRandom">GitHub</a></p>
+          </span>
+          <span class="left-tail"></span>
+          <span class="right-tail"></span>
+        </span>
+        <p>Generated with <a href="http://pages.github.com">GitHub Pages</a> using Merlot</p>
+        <span class="octocat"></span>
+      </footer>
+
+    </div>
+
+    
+  </body>
+</html>
