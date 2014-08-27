@@ -8,7 +8,7 @@ This is a utility library with several Random functions for javascript. It was l
 Reference
 ---------
 
-All functions are namespaced under `Random`, so `randint(0, 5)` is actually `Random.randint(0, 5)`
+All functions are namespaced under `Choice`, so `randint(0, 5)` is actually `Choice.randint(0, 5)`
 
 * [randint(min, max)](#randint)
 * [choice(array)](#choice)
