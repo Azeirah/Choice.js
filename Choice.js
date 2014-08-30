@@ -23,32 +23,14 @@ var Choice = (function () {
     };
 
     Choice.shuffle = function (array) {
-        var index;
-        var temp;
-        var newArray = [];
-        // deep copy
-        var copy = ([]).concat(array);
-
-        // for all items in the original array
-        // take an element from the copy, put it in the new array, and remove the taken element from copy
-        // [1, 2, 3]
-        // take: 2
-        // newArray = [2]
-        // [1, 3]
-        // take: 3
-        // newArray = [2, 3]
-        // [1]
-        // take: 1
-        // newArray = [2, 3, 1]
-        for (var i = 0; i < array.length; i++) {
-            temp = Choice.choice(copy);
-            newArray.push(temp);
-            index = copy.indexOf(temp);
-
-            copy.splice(index, 1);
-        };
-
-        return newArray;
+        var arr = array.slice();
+        for (var i = 0; i < arr.length; i++) {
+            var swapIdx = Choice.randint(i, arr.length - 1);
+            var buff = arr[i];
+            arr[i] = arr[swapIdx];
+            arr[swapIdx] = buff;
+        }
+        return arr;
     };
 
     Choice.chance = function (percentage, optional) {
@@ -64,7 +46,7 @@ var Choice = (function () {
         var probabilitySum = sum(probabilities);
         if (probabilities.length !== things.length) throw new Error("Probabilities length is not equal to items' length");
         if (probabilitySum != 100) throw new Error("Sum of probability percentages does not equal 100%. Sum is: " + probabilitySum);
-        
+
         for (var i = 0; i < probabilities.length; i++) {
             rand -= probabilities[i];
             if (rand <= 0)
