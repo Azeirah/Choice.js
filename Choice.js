@@ -68,7 +68,7 @@ var Choice = (function () {
     };
 
     Choice.gaussian = function (mean, standard_deviation) {
-        return Math.round(rnd_snd()*standard_deviation + mean);
+        return rnd_snd() * standard_deviation + mean;
     };
 
     Choice.rand = rand;
