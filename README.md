@@ -18,7 +18,7 @@ All functions are namespaced under `Choice`, so `randint(0, 5)` is actually `Cho
 * [gaussian(mean, standardDeviation)](#gaussian)
 * [chance(percentage, [choices])](#chance)
 * [probabilities(probabilities, outcomes)](#probabilities)
-* [setSeed(seed)](#seed)
+* [setSeed(seed)](#setSeed)
 
 Documentation
 -------------
