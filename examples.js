@@ -10,3 +10,16 @@ console.log("10 gaussian random numbers with a mean of 100 and a standard deviat
     }
     return a;
 }());
+console.log("Using seeded random, seed is 10");
+Choice.setSeed(10);
+var firstSeeded = Choice.rand();
+console.log("First random: " + firstSeeded);
+console.log("Setting seed to 10 again, resetting the Random Number Generator");
+Choice.setSeed(10);
+var secondSeeded = Choice.rand();
+console.log("Second random: " + secondSeeded);
+if (firstSeeded === secondSeeded) {
+    console.log("Seeded randomness works as expected");
+} else {
+    console.log("Seeded randomness is broken :(");
+}
