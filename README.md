@@ -3,7 +3,7 @@ Choice.js
 
 A random library for JavaScript
 
-This is a utility library with several Random functions for javascript. It was lightly inspired by the Python random module.
+This is a utility library with several Random functions for javascript. It was originally developed to be used in "natural" code, for physics, generated drawings and such. See [Nature of Code](http://natureofcode.com/)
 
 Reference
 ---------
@@ -18,6 +18,7 @@ All functions are namespaced under `Choice`, so `randint(0, 5)` is actually `Cho
 * [gaussian(mean, standardDeviation)](#gaussian)
 * [chance(percentage, [choices])](#chance)
 * [probabilities(probabilities, outcomes)](#probabilities)
+* [setSeed(seed)](#seed)
 
 Documentation
 -------------
@@ -167,4 +168,22 @@ probabilities([80, 20], [function () {
 }, function () {
     console.log("I appear about 20% of the time! :(");
 }])(); // these params () instantly call the chosen function
+```
+
+## setSeed
+
+#### *setSeed(seed)*
+
+Normally, Choice uses Math.random() as its base random number generator. This is fine for most use-cases. If you need reproducible randomness however, you can use Choice.setSeed(*seed*) to get reproducible randomness.
+
+```javascript
+Choice.setSeed(10);
+var firstSeeded = Choice.rand(); // 0.07342434833517503
+
+// Because seeded randomness is all about reproducible random numbers, we set the seed to 10 again, resetting the RNG
+Choice.setSeed(10);
+
+var secondSeeded = Choice.rand(); // 0.07342434833517503
+
+// the numbers are equal, as expected.
 ```
